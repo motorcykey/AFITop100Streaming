@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 AFI Top 100 Movies - Are They Streaming?
+  table
+    thead
+      tr
+        th Spot
+        th Movie Title
+        th Streaming
+    tbody
+      each movie, index in movies
+        tr
+          td= movie.index
+          td= movie.title
+          td
+            ul#providers
+              each service, index in movie.services
+                li.provider
+                  a(href=service.href, target='_blank')
+                    img(src=service.iconUrl)
